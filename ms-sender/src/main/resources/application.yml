@@ -1,0 +1,16 @@
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      properties:
+        partitioner.class: org.apache.kafka.clients.producer.RoundRobinPartitioner
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  distribution:
+    percentiles-histogram:
+      "[http.server.requests]": true
